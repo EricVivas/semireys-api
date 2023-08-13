@@ -21,14 +21,6 @@ class DBData extends Seeder
         DB::table('roles')->insert([
             'name' => 'vendedor',
         ]);
-
-        DB::table('users')->insert([
-            'name' => "Maria",
-            'email' =>"maria21@gmail.com",
-            'password' => Str::random(10),
-            'role_id' => 2
-        ]);
-
         
         DB::table('users')->insert([
             'name' => "Maria",
@@ -55,28 +47,28 @@ class DBData extends Seeder
         ]);
 
         DB::table('categories')->insert([
-            'name' => "camisas",
+            'name' => "camisa",
             'description' => "camisas unicolor",
         ]);
 
         DB::table('categories')->insert([
-            'name' => "pantalones",
+            'name' => "pantalon",
             'description' => "patalones unicolor",
         ]);
 
         DB::table('categories')->insert([
-            'name' => "camisas",
-            'description' => "camisas unicolor",
+            'name' => "franela",
+            'description' => "franela unicolor",
         ]);
 
         DB::table('categories')->insert([
-            'name' => "camisas",
-            'description' => "camisas unicolor",
+            'name' => "falda",
+            'description' => "falda unicolor",
         ]);
 
         DB::table('categories')->insert([
-            'name' => "camisas",
-            'description' => "camisas unicolor",
+            'name' => "licra",
+            'description' => "licra unicolor",
         ]);
 
         DB::table('products')->insert([
@@ -88,5 +80,53 @@ class DBData extends Seeder
             'category_id' => 1
         ]);
         
+        DB::table('products')->insert([
+            'name' => "camisa roja",
+            'description' => "camisa roja uni color",
+            'amount' => 1,
+            'price_production' => 1,
+            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnQMEXcSSGKOmEoQWVDeoRNkinCykM6xulRhEFu5LU&s',
+            'category_id' => 1
+        ]);
+        DB::table('products')->insert([
+            'name' => "camisa roja",
+            'description' => "camisa roja uni color",
+            'amount' => 1,
+            'price_production' => 1,
+            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnQMEXcSSGKOmEoQWVDeoRNkinCykM6xulRhEFu5LU&s',
+            'category_id' => 1
+        ]);
+        DB::table('products')->insert([
+            'name' => "camisa roja",
+            'description' => "camisa roja uni color",
+            'amount' => 1,
+            'price_production' => 1,
+            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnQMEXcSSGKOmEoQWVDeoRNkinCykM6xulRhEFu5LU&s',
+            'category_id' => 1
+        ]);
+        DB::table('products')->insert([
+            'name' => "camisa roja",
+            'description' => "camisa roja uni color",
+            'amount' => 1,
+            'price_production' => 1,
+            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnQMEXcSSGKOmEoQWVDeoRNkinCykM6xulRhEFu5LU&s',
+            'category_id' => 1
+        ]);
+        DB::table('products')->insert([
+            'name' => "camisa roja",
+            'description' => "camisa roja uni color",
+            'amount' => 1,
+            'price_production' => 1,
+            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnQMEXcSSGKOmEoQWVDeoRNkinCykM6xulRhEFu5LU&s',
+            'category_id' => 1
+        ]);
+        DB::table('products')->insert([
+            'name' => "camisa roja",
+            'description' => "camisa roja uni color",
+            'amount' => 1,
+            'price_production' => 1,
+            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnQMEXcSSGKOmEoQWVDeoRNkinCykM6xulRhEFu5LU&s',
+            'category_id' => 1
+        ]);
     }
 }

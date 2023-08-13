@@ -12,7 +12,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return response()->json(['data' => User::all()]);
+        return response()->json(['data' => User::with("role")->all()]);
     }
 
     /**
