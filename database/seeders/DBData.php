@@ -18,27 +18,75 @@ class DBData extends Seeder
             'name' => 'admin',
         ]);
 
-        for ($i=0; $i < 100; $i++) { 
-            DB::table('users')->insert([
-                'name' => Str::random(10),
-                'email' => Str::random(10) . '@gmail.com',
-                'password' => Str::random(10),
-                'role_id' => 1
-            ]);
+        DB::table('roles')->insert([
+            'name' => 'vendedor',
+        ]);
 
-            DB::table('categories')->insert([
-                'name' => Str::random(10),
-                'description' => Str::random(10),
-            ]);
+        DB::table('users')->insert([
+            'name' => "Maria",
+            'email' =>"maria21@gmail.com",
+            'password' => Str::random(10),
+            'role_id' => 2
+        ]);
 
-            DB::table('products')->insert([
-                'name' => Str::random(10),
-                'description' => Str::random(10),
-                'amount' => 1,
-                'price_production' => 1,
-                'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnQMEXcSSGKOmEoQWVDeoRNkinCykM6xulRhEFu5LU&s',
-                'category_id' => 1
-            ]);
-        }
+        
+        DB::table('users')->insert([
+            'name' => "Maria",
+            'email' =>"maria21@gmail.com",
+            'password' => Str::random(10),
+            'role_id' => 2
+        ]);
+
+        
+        DB::table('users')->insert([
+            'name' => "Carla",
+            'email' =>"carla.catalina@gmail.com",
+            'password' => Str::random(10),
+            'role_id' => 2
+        ]);
+
+
+        
+        DB::table('users')->insert([
+            'name' => "Jose",
+            'email' =>"jose.llanes@gmail.com",
+            'password' => Str::random(10),
+            'role_id' => 2
+        ]);
+
+        DB::table('categories')->insert([
+            'name' => "camisas",
+            'description' => "camisas unicolor",
+        ]);
+
+        DB::table('categories')->insert([
+            'name' => "pantalones",
+            'description' => "patalones unicolor",
+        ]);
+
+        DB::table('categories')->insert([
+            'name' => "camisas",
+            'description' => "camisas unicolor",
+        ]);
+
+        DB::table('categories')->insert([
+            'name' => "camisas",
+            'description' => "camisas unicolor",
+        ]);
+
+        DB::table('categories')->insert([
+            'name' => "camisas",
+            'description' => "camisas unicolor",
+        ]);
+
+        DB::table('products')->insert([
+            'name' => "camisa roja",
+            'description' => "camisa roja uni color",
+            'amount' => 1,
+            'price_production' => 1,
+            'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnQMEXcSSGKOmEoQWVDeoRNkinCykM6xulRhEFu5LU&s',
+            'category_id' => 1
+        ]);
+        
     }
 }
