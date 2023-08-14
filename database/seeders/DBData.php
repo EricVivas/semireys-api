@@ -21,7 +21,7 @@ class DBData extends Seeder
         DB::table('roles')->insert([
             'name' => 'vendedor',
         ]);
-        
+
         DB::table('users')->insert([
             'name' => "Maria",
             'email' =>"maria21@gmail.com",
@@ -29,7 +29,6 @@ class DBData extends Seeder
             'role_id' => 2
         ]);
 
-        
         DB::table('users')->insert([
             'name' => "Carla",
             'email' =>"carla.catalina@gmail.com",
@@ -37,8 +36,6 @@ class DBData extends Seeder
             'role_id' => 2
         ]);
 
-
-        
         DB::table('users')->insert([
             'name' => "Jose",
             'email' =>"jose.llanes@gmail.com",
@@ -79,7 +76,7 @@ class DBData extends Seeder
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnQMEXcSSGKOmEoQWVDeoRNkinCykM6xulRhEFu5LU&s',
             'category_id' => 1
         ]);
-        
+
         DB::table('products')->insert([
             'name' => "camisa roja",
             'description' => "camisa roja uni color",
@@ -88,6 +85,7 @@ class DBData extends Seeder
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnQMEXcSSGKOmEoQWVDeoRNkinCykM6xulRhEFu5LU&s',
             'category_id' => 1
         ]);
+
         DB::table('products')->insert([
             'name' => "camisa roja",
             'description' => "camisa roja uni color",
@@ -96,6 +94,7 @@ class DBData extends Seeder
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnQMEXcSSGKOmEoQWVDeoRNkinCykM6xulRhEFu5LU&s',
             'category_id' => 1
         ]);
+
         DB::table('products')->insert([
             'name' => "camisa roja",
             'description' => "camisa roja uni color",
@@ -104,6 +103,7 @@ class DBData extends Seeder
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnQMEXcSSGKOmEoQWVDeoRNkinCykM6xulRhEFu5LU&s',
             'category_id' => 1
         ]);
+
         DB::table('products')->insert([
             'name' => "camisa roja",
             'description' => "camisa roja uni color",
@@ -112,6 +112,7 @@ class DBData extends Seeder
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnQMEXcSSGKOmEoQWVDeoRNkinCykM6xulRhEFu5LU&s',
             'category_id' => 1
         ]);
+
         DB::table('products')->insert([
             'name' => "camisa roja",
             'description' => "camisa roja uni color",
@@ -120,6 +121,7 @@ class DBData extends Seeder
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnQMEXcSSGKOmEoQWVDeoRNkinCykM6xulRhEFu5LU&s',
             'category_id' => 1
         ]);
+
         DB::table('products')->insert([
             'name' => "camisa roja",
             'description' => "camisa roja uni color",
