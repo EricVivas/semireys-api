@@ -10,11 +10,11 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('product_sales', function (Blueprint $table) {
+        Schema::create('currency_product', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('amount')->nullable();
+            $table->double('value')->nullable();
             $table->unsignedBigInteger('product_id')->nullable();
-            $table->unsignedBigInteger('sale_id')->nullable();
+            $table->unsignedBigInteger('currency_id')->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_sales');
+        Schema::dropIfExists('currency_product');
     }
 };
