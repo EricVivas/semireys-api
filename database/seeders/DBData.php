@@ -220,5 +220,211 @@ class DBData extends Seeder
             'image' => 'https://racketball.vteximg.com.br/arquivos/ids/196058-1248-1546/41961-LICRA-DEPORTIVA-LARGA-BLANCO-MUJER-PANTALONES-Y-LICRAS-RACKETBALL-7701650875354-1.jpg?v=637986182164130000',
             'category_id' => 5
         ]);
+
+        //taxes
+        DB::table('taxes')->insert([
+            'name' => "IVA",
+            'value' => 0.16
+        ]);
+
+        //currencies
+        DB::table('currencies')->insert([
+            'name' => "VES - Bolivar"
+        ]);
+        DB::table('currencies')->insert([
+            'name' => "COP - Pesos"
+        ]);
+        DB::table('currencies')->insert([
+            'name' => "USD - Dolares"
+        ]);
+
+        //changes
+        DB::table('changes')->insert([
+            'value' => 33.9172,
+            'currency_id' => 3,
+            'currency_change_id' => 1
+        ]);
+        DB::table('changes')->insert([
+            'value' => 0.029598,
+            'currency_id' => 1,
+            'currency_change_id' => 3
+        ]);
+        DB::table('changes')->insert([
+            'value' => 116.174,
+            'currency_id' => 1,
+            'currency_change_id' => 2
+        ]);
+        DB::table('changes')->insert([
+            'value' => 0.00849861,
+            'currency_id' => 2,
+            'currency_change_id' => 1
+        ]);
+        DB::table('changes')->insert([
+            'value' => 0.00025,
+            'currency_id' => 2,
+            'currency_change_id' => 3
+        ]);
+        DB::table('changes')->insert([
+            'value' => 3938.91,
+            'currency_id' => 3,
+            'currency_change_id' => 2
+        ]);
+
+        //product_tax
+        DB::table('product_tax')->insert([
+            'product_id' => 1,
+            'tax_id' => 1
+        ]);
+        DB::table('product_tax')->insert([
+            'product_id' => 2,
+            'tax_id' => 1
+        ]);
+        DB::table('product_tax')->insert([
+            'product_id' => 3,
+            'tax_id' => 1
+        ]);
+        DB::table('product_tax')->insert([
+            'product_id' => 4,
+            'tax_id' => 1
+        ]);
+        DB::table('product_tax')->insert([
+            'product_id' => 5,
+            'tax_id' => 1
+        ]);
+        DB::table('product_tax')->insert([
+            'product_id' => 6,
+            'tax_id' => 1
+        ]);
+        DB::table('product_tax')->insert([
+            'product_id' => 7,
+            'tax_id' => 1
+        ]);
+        DB::table('product_tax')->insert([
+            'product_id' => 8,
+            'tax_id' => 1
+        ]);
+        DB::table('product_tax')->insert([
+            'product_id' => 9,
+            'tax_id' => 1
+        ]);
+        DB::table('product_tax')->insert([
+            'product_id' => 10,
+            'tax_id' => 1
+        ]);
+        DB::table('product_tax')->insert([
+            'product_id' => 11,
+            'tax_id' => 1
+        ]);
+        DB::table('product_tax')->insert([
+            'product_id' => 12,
+            'tax_id' => 1
+        ]);
+        DB::table('product_tax')->insert([
+            'product_id' => 13,
+            'tax_id' => 1
+        ]);
+        DB::table('product_tax')->insert([
+            'product_id' => 14,
+            'tax_id' => 1
+        ]);
+        DB::table('product_tax')->insert([
+            'product_id' => 15,
+            'tax_id' => 1
+        ]);
+        DB::table('product_tax')->insert([
+            'product_id' => 16,
+            'tax_id' => 1
+        ]);
+        DB::table('product_tax')->insert([
+            'product_id' => 17,
+            'tax_id' => 1
+        ]);
+
+        //currency_product
+        DB::table('currency_product')->insert([
+            'value' => 33.9172,
+            'product_id' => 1,
+            'currency_id' => 1
+        ]);
+        DB::table('currency_product')->insert([
+            'value' => 67.8344,
+            'product_id' => 2,
+            'currency_id' => 1
+        ]);
+        DB::table('currency_product')->insert([
+            'value' => 169.586,
+            'product_id' => 3,
+            'currency_id' => 1
+        ]);
+        DB::table('currency_product')->insert([
+            'value' => 101.7516,
+            'product_id' => 4,
+            'currency_id' => 1
+        ]);
+        DB::table('currency_product')->insert([
+            'value' => 271.3376,
+            'product_id' => 5,
+            'currency_id' => 1
+        ]);
+        DB::table('currency_product')->insert([
+            'value' => 116174,
+            'product_id' => 6,
+            'currency_id' => 2
+        ]);
+        DB::table('currency_product')->insert([
+            'value' => 232348,
+            'product_id' => 7,
+            'currency_id' => 2
+        ]);
+        DB::table('currency_product')->insert([
+            'value' => 580870,
+            'product_id' => 8,
+            'currency_id' => 2
+        ]);
+        DB::table('currency_product')->insert([
+            'value' => 348522,
+            'product_id' => 9,
+            'currency_id' => 2
+        ]);
+        DB::table('currency_product')->insert([
+            'value' => 929392,
+            'product_id' => 10,
+            'currency_id' => 2
+        ]);
+        DB::table('currency_product')->insert([
+            'value' => 1,
+            'product_id' => 11,
+            'currency_id' => 3
+        ]);
+        DB::table('currency_product')->insert([
+            'value' => 2,
+            'product_id' => 12,
+            'currency_id' => 3
+        ]);
+        DB::table('currency_product')->insert([
+            'value' => 5,
+            'product_id' => 13,
+            'currency_id' => 3
+        ]);
+        DB::table('currency_product')->insert([
+            'value' => 3,
+            'product_id' => 14,
+            'currency_id' => 3
+        ]);
+        DB::table('currency_product')->insert([
+            'value' => 8,
+            'product_id' => 15,
+            'currency_id' => 3
+        ]);
+        DB::table('currency_product')->insert([
+            'value' => 157.0516,
+            'product_id' => 16,
+            'currency_id' => 1
+        ]);
+        DB::table('currency_product')->insert([
+            'value' => 203521,
+            'product_id' => 17,
+            'currency_id' => 2
+        ]);
     }
 }
