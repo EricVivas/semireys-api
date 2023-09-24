@@ -22,31 +22,31 @@ class DBData extends Seeder
         DB::table('users')->insert([
             'name' => "Maria",
             'email' => "maria21@gmail.com",
-            'password' => Str::random(10),
+            'password' => bcrypt('Maria123.'),
             'role_id' => 2
         ]);
         DB::table('users')->insert([
             'name' => "Carla",
             'email' => "carla.catalina@gmail.com",
-            'password' => Str::random(10),
+            'password' => bcrypt('Carla123.'),
             'role_id' => 2
         ]);
         DB::table('users')->insert([
             'name' => "Jose",
             'email' => "jose.llanes@gmail.com",
-            'password' => Str::random(10),
+            'password' => bcrypt('Jose123.'),
             'role_id' => 2
         ]);
         DB::table('users')->insert([
             'name' => "Luis",
             'email' => "luis.tavera@gmail.com",
-            'password' => Str::random(10),
+            'password' => bcrypt('Luis123.'),
             'role_id' => 2
         ]);
         DB::table('users')->insert([
             'name' => "Orlando",
             'email' => "orlando.palencia@gmail.com",
-            'password' => Str::random(10),
+            'password' => bcrypt('Orlando123.'),
             'role_id' => 2
         ]);
         DB::table('categories')->insert([
