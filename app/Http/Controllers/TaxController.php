@@ -12,7 +12,7 @@ class TaxController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(['data' => Tax::all()]);
     }
 
     /**
@@ -28,7 +28,7 @@ class TaxController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response()->json(['data' => Tax::create($request->all())]);
     }
 
     /**
@@ -36,7 +36,7 @@ class TaxController extends Controller
      */
     public function show(Tax $tax)
     {
-        //
+        return response()->json(['data' => $tax]);
     }
 
     /**
@@ -52,7 +52,7 @@ class TaxController extends Controller
      */
     public function update(Request $request, Tax $tax)
     {
-        //
+        return response()->json(['data' => $tax->update($request->all())]);
     }
 
     /**
@@ -60,6 +60,6 @@ class TaxController extends Controller
      */
     public function destroy(Tax $tax)
     {
-        //
+        return response()->json(['data' => $tax->delete()]);
     }
 }

@@ -12,7 +12,7 @@ class SaleController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(['data' => Sale::with(['user', 'products'])->get()]);
     }
 
     /**
@@ -28,7 +28,16 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sale = Sale::create($request->except('products'));
+        if ($request->products) {
+            $attach = [];
+            for ($i = 0; $i < count($request->products); $i++)
+                $attach[$request->products[$i]['id']] = ['amount' => $request->products[$i]['amount']];
+            $sale->products()->attach($attach);
+        }
+        $sale->load('user');
+        $sale->load('products');
+        return response()->json(['data' => $sale]);
     }
 
     /**
@@ -36,7 +45,9 @@ class SaleController extends Controller
      */
     public function show(Sale $sale)
     {
-        //
+        $sale->load('user');
+        $sale->load('products');
+        return response()->json(['data' => $sale]);
     }
 
     /**
@@ -52,7 +63,7 @@ class SaleController extends Controller
      */
     public function update(Request $request, Sale $sale)
     {
-        //
+        return response()->json(['data' => $sale->update($request->all())]);
     }
 
     /**
@@ -60,6 +71,6 @@ class SaleController extends Controller
      */
     public function destroy(Sale $sale)
     {
-        //
+        return response()->json(['data' => $sale->delete()]);
     }
 }

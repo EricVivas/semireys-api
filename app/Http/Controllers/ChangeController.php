@@ -12,7 +12,7 @@ class ChangeController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(['data' => Change::with(["currency", "currencyChange"])->get()]);
     }
 
     /**
@@ -28,7 +28,7 @@ class ChangeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response()->json(['data' => Change::create($request->all())]);
     }
 
     /**
@@ -36,7 +36,9 @@ class ChangeController extends Controller
      */
     public function show(Change $change)
     {
-        //
+        $change->load("currency");
+        $change->load("currencyChange");
+        return response()->json(['data' => $change]);
     }
 
     /**
@@ -52,7 +54,7 @@ class ChangeController extends Controller
      */
     public function update(Request $request, Change $change)
     {
-        //
+        return response()->json(['data' => $change->update($request->all())]);
     }
 
     /**
@@ -60,6 +62,6 @@ class ChangeController extends Controller
      */
     public function destroy(Change $change)
     {
-        //
+        return response()->json(['data' => $change->delete()]);
     }
 }

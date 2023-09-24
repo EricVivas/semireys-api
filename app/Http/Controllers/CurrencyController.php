@@ -12,7 +12,7 @@ class CurrencyController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(['data' => Currency::with('changes')->get()]);
     }
 
     /**
@@ -28,7 +28,7 @@ class CurrencyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response()->json(['data' => Currency::create($request->all())]);
     }
 
     /**
@@ -36,7 +36,8 @@ class CurrencyController extends Controller
      */
     public function show(Currency $currency)
     {
-        //
+        $currency->load('changes');
+        return response()->json(['data' => $currency]);
     }
 
     /**
@@ -52,7 +53,7 @@ class CurrencyController extends Controller
      */
     public function update(Request $request, Currency $currency)
     {
-        //
+        return response()->json(['data' => $currency->update($request->all())]);
     }
 
     /**
@@ -60,6 +61,6 @@ class CurrencyController extends Controller
      */
     public function destroy(Currency $currency)
     {
-        //
+        return response()->json(['data' => $currency->delete()]);
     }
 }

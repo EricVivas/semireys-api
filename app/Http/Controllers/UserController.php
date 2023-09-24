@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -12,7 +13,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return response()->json(['data' => User::all()]);
+        return response()->json(['data' => User::with(["role", "sales"])->get()]);
     }
 
     /**
@@ -28,10 +29,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::create($request->all());
-        $user->role_id = $request->role_id;
-        $user->save();
-        return response()->json(['data' => $user]);
+        $user = $request->all();
+        $user["password"] = Hash::make($user["password"]);
+        return response()->json(['data' => User::create($user)]);
     }
 
     /**
@@ -39,6 +39,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        $user->load('role');
+        $user->load('sales');
         return response()->json(['data' => $user]);
     }
 
@@ -55,7 +57,10 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        return response()->json(['data' => $user->update($request->all())]);
+        $data = $request->all();
+        if ($data["password"])
+            $data["password"] = Hash::make($data["password"]);
+        return response()->json(['data' => $user->update($data)]);
     }
 
     /**
