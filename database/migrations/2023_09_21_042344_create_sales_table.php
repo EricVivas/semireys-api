@@ -15,7 +15,9 @@ return new class extends Migration {
             $table->string('name_client')->nullable();
             $table->string('email_client')->nullable();
             $table->string('number_phone_client')->nullable();
+            $table->double('total')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('currency_id')->nullable();
             $table->timestamps();
         });
     }

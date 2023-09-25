@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('name')->nullable();
             $table->string('description')->nullable();
             $table->unsignedInteger('amount')->nullable();
+            $table->double('value')->nullable();
             $table->double('price_production')->nullable();
             $table->string('image')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
