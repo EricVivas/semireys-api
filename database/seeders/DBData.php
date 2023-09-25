@@ -99,6 +99,21 @@ class DBData extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
+        DB::table('currencies')->insert([
+            'name' => "VES - Bolivar",
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        DB::table('currencies')->insert([
+            'name' => "COP - Pesos",
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        DB::table('currencies')->insert([
+            'name' => "USD - Dolares",
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
         DB::table('products')->insert([
             'name' => "camisa roja",
             'description' => "camisa roja",
@@ -1255,7 +1270,6 @@ class DBData extends Seeder
             'updated_at' => now(),
             'currency_id' => 2
         ]);
-
         DB::table('products')->insert([
             'name' => "Camiseta de Fútbol Local Colombia 22 Adidas Mujer",
             'description' => "Marca: Adidas",
@@ -1487,21 +1501,6 @@ class DBData extends Seeder
         DB::table('taxes')->insert([
             'name' => "IVA",
             'value' => 0.16,
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        DB::table('currencies')->insert([
-            'name' => "VES - Bolivar",
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        DB::table('currencies')->insert([
-            'name' => "COP - Pesos",
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        DB::table('currencies')->insert([
-            'name' => "USD - Dolares",
             'created_at' => now(),
             'updated_at' => now()
         ]);

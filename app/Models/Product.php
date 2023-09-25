@@ -22,9 +22,9 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function currencies(): BelongsToMany
+    public function currency(): BelongsTo
     {
-        return $this->belongsToMany(Currency::class);
+        return $this->belongsTo(Currency::class);
     }
 
     public function sales(): BelongsToMany

@@ -36,6 +36,7 @@ class SaleController extends Controller
             $sale->products()->attach($attach);
         }
         $sale->load('user');
+        $sale->load('currency');
         $sale->load('products');
         return response()->json(['data' => $sale]);
     }
@@ -46,6 +47,7 @@ class SaleController extends Controller
     public function show(Sale $sale)
     {
         $sale->load('user');
+        $sale->load('currency');
         $sale->load('products');
         return response()->json(['data' => $sale]);
     }

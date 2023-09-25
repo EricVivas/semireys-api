@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->double('price_production')->nullable();
             $table->string('image')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('currency_id')->nullable();
             $table->timestamps();
         });
     }

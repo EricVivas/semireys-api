@@ -16,10 +16,6 @@ return new class extends Migration {
 
         Schema::table('products', function (Blueprint $table) {
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-        });
-
-        Schema::table('currency_product', function (Blueprint $table) {
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('currency_id')->references('id')->on('currencies')->onDelete('cascade');
         });
 
@@ -35,6 +31,7 @@ return new class extends Migration {
 
         Schema::table('sales', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('currency_id')->references('id')->on('currencies')->onDelete('cascade');
         });
 
         Schema::table('product_sale', function (Blueprint $table) {
@@ -54,10 +51,6 @@ return new class extends Migration {
 
         Schema::table('products', function (Blueprint $table) {
             $table->dropForeign(['category_id']);
-        });
-
-        Schema::table('currency_product', function (Blueprint $table) {
-            $table->dropForeign(['product_id']);
             $table->dropForeign(['currency_id']);
         });
 
@@ -73,6 +66,7 @@ return new class extends Migration {
 
         Schema::table('sales', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
+            $table->dropForeign(['currency_id']);
         });
 
         Schema::table('product_sale', function (Blueprint $table) {

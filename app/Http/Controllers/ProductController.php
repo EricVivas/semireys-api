@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\Currency;
-use App\Models\Tax;
 use App\Utils\Utils;
 use Illuminate\Http\Request;
 
@@ -15,7 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return response()->json(['data' => Product::with(['category', 'currencies', 'sales', 'taxes'])->get()]);
+        return response()->json(['data' => Product::with(['category', 'currency', 'sales'])->get()]);
     }
 
     /**
@@ -31,15 +29,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = $request->except(['currency_id', 'currency_value', 'tax_id']);
-        if ($product["image"]) $product["image"] = Utils::saveFile($product["image"], "public/files");
+        $product = $request->all();
+        if ($product["image"])
+            $product["image"] = Utils::saveFile($product["image"], "public/files");
         $product = Product::create($product);
-        if ($request->currency_id && $request->currency_value) $product->currencies()->attach($request->currency_id, ['value' =>  $request->currency_value]);
-        if ($request->tax_id) $product->taxes()->attach($request->tax_id);
         $product->load('category');
-        $product->load('currencies');
+        $product->load('currency');
         $product->load('sales');
-        $product->load('taxes');
         return response()->json(['data' => $product]);
     }
 
@@ -49,9 +45,8 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $product->load('category');
-        $product->load('currencies');
+        $product->load('currency');
         $product->load('sales');
-        $product->load('taxes');
         return response()->json(['data' => $product]);
     }
 
