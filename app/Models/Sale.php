@@ -30,4 +30,19 @@ class Sale extends Model
     {
         return $this->belongsToMany(Product::class);
     }
+
+    public function scopeDateBetween($query, $date_start, $date_end)
+    {
+        return $query->whereBetween('created_at', [$date_start, $date_end]);
+    }
+
+    public function scopeDateStart($query, $date_start)
+    {
+        return $query->where('created_at', '>=', $date_start);
+    }
+
+    public function scopeDateEnd($query, $date_end)
+    {
+        return $query->where('created_at', '<=', $date_end);
+    }
 }

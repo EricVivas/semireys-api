@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sale;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -12,7 +13,18 @@ class SaleController extends Controller
      */
     public function index()
     {
-        return response()->json(['data' => Sale::with(['user', 'products'])->get()]);
+        $date_start = request()->get('date_start');
+        $date_end = request()->get('date_end');
+        $sales = [];
+        if ($date_start && $date_end)
+            $sales = Sale::with(['user', 'products'])->dateBetween($date_start, $date_end)->get();
+        else if ($date_start)
+            $sales = Sale::with(['user', 'products'])->dateStart($date_start)->get();
+        else if ($date_end)
+            $sales = Sale::with(['user', 'products'])->dateEnd($date_end)->get();
+        else
+            $sales = Sale::with(['user', 'products'])->get();
+        return response()->json(['data' => $sales]);
     }
 
     /**
@@ -28,12 +40,27 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        $sale = Sale::create($request->except('products'));
+        $sale = null;
         if ($request->products) {
             $attach = [];
-            for ($i = 0; $i < count($request->products); $i++)
-                $attach[$request->products[$i]['id']] = ['amount' => $request->products[$i]['amount']];
+            $products = [];
+            $products_out_of_stock = [];
+            for ($i = 0, $j = 0; $i < count($request->products); $i++) {
+                $product = Product::findOrFail($request->products[$i]['id']);
+                if ($product->amount - $request->products[$i]['amount'] < 0)
+                    $products_out_of_stock[$j++] = $product->name;
+                else {
+                    $attach[$request->products[$i]['id']] = ['amount' => $request->products[$i]['amount']];
+                    $product->amount = $product->amount - $request->products[$i]['amount'];
+                    $products[$i] = $product;
+                }
+            }
+            if (count($products_out_of_stock) > 0)
+                return response()->json(['error' => 'E1', 'products_out_of_stock' => $products_out_of_stock], 400);
+            $sale = Sale::create($request->except('products'));
             $sale->products()->attach($attach);
+            for ($i = 0; $i < count($products); $i++)
+                $products[$i]->save();
         }
         $sale->load('user');
         $sale->load('currency');

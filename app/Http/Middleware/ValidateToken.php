@@ -16,11 +16,11 @@ class ValidateToken
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
-    {   
-        if($request->header('Authorization') == null || trim($request->header('Authorization') == ""))
-        return response()->json(['error' => 'Unauthorized action.'], 401);
+    {
+        if ($request->header('Authorization') == null || trim($request->header('Authorization') == ""))
+            return response()->json(['error' => 'Unauthorized action'], 401);
 
-        $token_request = explode(" " ,$request->header('Authorization'))[1];
+        $token_request = explode(" ", $request->header('Authorization'))[1];
         JWTUtils::tokenValidate($token_request);
         return $next($request);
     }

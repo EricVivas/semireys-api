@@ -64,7 +64,7 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $data = $request->all();
-        if ($data["image"])
+        if (isset($data["image"]))
             $data["image"] = Utils::saveFile($product["image"], "public/files");
         return response()->json(['data' => $product->update($data)]);
     }

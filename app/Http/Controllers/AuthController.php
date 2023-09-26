@@ -17,7 +17,7 @@ class AuthController extends Controller
             $data_token['expiration'] = time() + (60 * 60 * 24 * 7);
             return response()->json(['data' => ['user' => $user, 'token' => JWTUtils::generateToken($data_token)]]);
         } else {
-            return response()->json(['error' => 'invalid credentials'], 400);
+            return response()->json(['error' => 'Invalid credentials'], 400);
         }
     }
 }
