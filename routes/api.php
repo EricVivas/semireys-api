@@ -32,9 +32,9 @@ Route::middleware([ValidateToken::class])->group(function () {
     Route::resource('products', ProductController::class)->only([
         'store',
         'show',
-        'update',
         'destroy'
     ]);
+    Route::post('products/update/{id}', [ProductController::class, 'update']);
     Route::resource('sales', SaleController::class)->only([
         'index',
         'store',

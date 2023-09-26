@@ -61,11 +61,12 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
+        $product = Product::findOrFail($id);
         $data = $request->all();
         if (isset($data["image"]))
-            $data["image"] = Utils::saveFile($product["image"], "public/files");
+            $data["image"] = Utils::saveFile($data["image"], "public/files");
         return response()->json(['data' => $product->update($data)]);
     }
 
