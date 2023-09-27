@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
+use App\Models\Sale;
 
 class DBData extends Seeder
 {
@@ -117,7 +119,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "camisa roja",
             'description' => "camisa roja",
-            'amount' => 1,
+            'amount' => 10,
             'value' => 10000,
             'price_production' => 20,
             'image' => 'https://arturocalle.vtexassets.com/arquivos/ids/429662-800-auto?v=637850237511830000&width=800&height=auto&aspect=true',
@@ -129,7 +131,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "camisa azul",
             'description' => "camisa azul",
-            'amount' => 1,
+            'amount' => 6,
             'value' => 10000,
             'price_production' => 1,
             'image' => 'https://ferrefarbef.com/wp-content/uploads/2023/01/camisa-oxford-500x500-agrofarbef-1.jpg',
@@ -141,7 +143,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "camisa cuadros",
             'description' => "camisa cuadros",
-            'amount' => 1,
+            'amount' => 7,
             'value' => 10000,
             'price_production' => 1,
             'image' => 'https://www.camiseriaeuropea.com/cdn/shop/products/479_001.jpg?v=1598905432&width=990',
@@ -153,7 +155,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "camisa verde",
             'description' => "camisa verde",
-            'amount' => 1,
+            'amount' => 8,
             'value' => 10000,
             'price_production' => 1,
             'image' => 'https://www.thundra.co/wp-content/uploads/2021/10/Referencia-5-01-optimized.jpg',
@@ -165,7 +167,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "camisa blanca",
             'description' => "camisa blanca",
-            'amount' => 1,
+            'amount' => 6,
             'value' => 10000,
             'price_production' => 1,
             'image' => 'https://mercedesbenzco.vtexassets.com/arquivos/ids/156327-500-auto?v=637879894033000000&width=500&height=auto&aspect=true',
@@ -177,7 +179,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "camisa negra",
             'description' => "camisa negra",
-            'amount' => 1,
+            'amount' => 5,
             'value' => 10000,
             'price_production' => 1,
             'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_624034-MLM54861537347_042023-F.webp',
@@ -189,7 +191,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "camisa gris",
             'description' => "camisa gris",
-            'amount' => 1,
+            'amount' => 9,
             'value' => 10000,
             'price_production' => 1,
             'image' => 'https://www.duracolor.co/components/com_virtuemart/shop_image/product/resized/magictoolbox_cache/dd6b6cfc02e1715d9cb0915c3f4a72c2/788/thumb350x350/37800525de2931032933501b5a6df84d.jpg',
@@ -201,7 +203,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "franela roja",
             'description' => "franela roja",
-            'amount' => 1,
+            'amount' => 7,
             'value' => 10000,
             'price_production' => 144,
             'image' => 'https://static.dafiti.com.co/p/gildan-3615-3316231-1-zoom.jpg',
@@ -213,7 +215,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "franela azul",
             'description' => "franela azul",
-            'amount' => 1,
+            'amount' => 10,
             'value' => 10000,
             'price_production' => 144,
             'image' => 'https://gsvcolombia.com/cdn/shop/products/Azul_rey9_720x.jpg?v=1625157569',
@@ -225,7 +227,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "franela cuadros",
             'description' => "franela cuadros",
-            'amount' => 1,
+            'amount' => 9,
             'value' => 10000,
             'price_production' => 144,
             'image' => 'https://www.14oz.es/uploads/photo/image/21816/gallery_A06627_IUUut40v.JPG',
@@ -237,7 +239,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "franela verde",
             'description' => "franela verde",
-            'amount' => 1,
+            'amount' => 4,
             'value' => 10000,
             'price_production' => 144,
             'image' => 'https://demo.servisisweb.com/site/wp-content/uploads/2018/06/img-6.jpg',
@@ -249,7 +251,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "franela blanca",
             'description' => "franela blanca",
-            'amount' => 1,
+            'amount' => 6,
             'value' => 10000,
             'price_production' => 144,
             'image' => 'https://unifyb2b.net/images/thumbnails/590/590/detailed/8/FTSMP12.png',
@@ -261,7 +263,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra roja",
             'description' => "licra roja",
-            'amount' => 1,
+            'amount' => 8,
             'value' => 10000,
             'price_production' => 144,
             'image' => 'https://dferactivewear.com/cdn/shop/products/image00025_2.jpg?v=1651621100',
@@ -273,7 +275,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra azul",
             'description' => "licra azul",
-            'amount' => 1,
+            'amount' => 7,
             'value' => 10000,
             'price_production' => 144,
             'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_749482-MCO70722770161_072023-F.webp',
@@ -285,7 +287,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra cuadros",
             'description' => "licra cuadros",
-            'amount' => 1,
+            'amount' => 6,
             'value' => 10000,
             'price_production' => 144,
             'image' => 'https://http2.mlstatic.com/D_NQ_NP_2X_605346-MLM51109504750_082022-F.webp',
@@ -297,7 +299,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra verde",
             'description' => "licra verde",
-            'amount' => 1,
+            'amount' => 7,
             'value' => 10000,
             'price_production' => 144,
             'image' => 'https://tendenciadeportiva.com.co/wp-content/uploads/2022/03/LD-588-Frontal.png',
@@ -309,7 +311,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra blanca",
             'description' => "licra blanca",
-            'amount' => 1,
+            'amount' => 9,
             'value' => 10000,
             'price_production' => 144,
             'image' => 'https://racketball.vteximg.com.br/arquivos/ids/196058-1248-1546/41961-LICRA-DEPORTIVA-LARGA-BLANCO-MUJER-PANTALONES-Y-LICRAS-RACKETBALL-7701650875354-1.jpg?v=637986182164130000',
@@ -1044,7 +1046,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra Lycra",
             'description' => "licra Lycra",
-            'amount' => 1,
+            'amount' => 3,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvvqIxYhbXcbXu6ZHzNrKTl_lcdijYXWmUh_GcJyXxT_B81mI85Jh-U5zNK9nP-8FDiHk&usqp=CAU',
@@ -1056,7 +1058,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra Elastano",
             'description' => "licra Elastano",
-            'amount' => 1,
+            'amount' => 4,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://4.bp.blogspot.com/-IeuIuH0BLuA/UHbBdgSHVCI/AAAAAAAAClc/FiFGc8fInnU/s200/cotton-lycra-shorts.jpg',
@@ -1068,7 +1070,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra Elastano",
             'description' => "licra blanca",
-            'amount' => 1,
+            'amount' => 6,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://racketball.vteximg.com.br/arquivos/ids/196058-1248-1546/41961-LICRA-DEPORTIVA-LARGA-BLANCO-MUJER-PANTALONES-Y-LICRAS-RACKETBALL-7701650875354-1.jpg?v=637986182164130000',
@@ -1080,7 +1082,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra Acrilan",
             'description' => "licra Acrilan",
-            'amount' => 1,
+            'amount' => 4,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://lenceriamonique.com.mx/wp-content/uploads/2020/10/406_adelante-300x300.png',
@@ -1092,7 +1094,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra Poliamida",
             'description' => "licra Poliamida",
-            'amount' => 1,
+            'amount' => 6,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://www.skaylafitstore.com/wp-content/uploads/2022/08/BB90883-1.jpg',
@@ -1104,7 +1106,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra Nylon",
             'description' => "licra Nylon",
-            'amount' => 1,
+            'amount' => 9,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://landing-page-backend.s3.ap-south-1.amazonaws.com/blog_page_prodimages/9b5151b4-f9a9-4bcb-bad0-3eed454289c5/shutterstock_1230577864-1_auto.png',
@@ -1116,7 +1118,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra Poliéster",
             'description' => "licra Poliéster",
-            'amount' => 1,
+            'amount' => 7,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaI0NSZpWwFRfw_71hQr8sbZWHJicaJluYg8PO0-XOR03-oJhLq6BE7dFt5FPK6j-YCRI&usqp=CAU',
@@ -1128,7 +1130,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra Algodón elástico",
             'description' => "licra Algodón elástico",
-            'amount' => 1,
+            'amount' => 6,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://nayaindumentaria.com/wp-content/uploads/2020/09/naya-117-cintura-elastisada-3..jpg',
@@ -1140,7 +1142,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra Tactel",
             'description' => "licra Tactel",
-            'amount' => 1,
+            'amount' => 6,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://www.nativos.com.co/images/galeria/imagen_id_1896.jpg',
@@ -1152,7 +1154,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra Neopreno",
             'description' => "licra Neopreno",
-            'amount' => 1,
+            'amount' => 6,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://sendaigroup.com.co/cdn/shop/products/Diapositiva84_150x150.jpg?v=1665885708',
@@ -1164,7 +1166,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra Jersey",
             'description' => "licra Jersey",
-            'amount' => 1,
+            'amount' => 12,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://www.telasperu.com/wp-content/uploads/2015/03/Screenshot_2018-10-27-21-09-232.png',
@@ -1176,7 +1178,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra Seda elástica",
             'description' => "licra Seda elástica",
-            'amount' => 1,
+            'amount' => 8,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://racketball.vteximg.com.br/arquivos/ids/186392-1248-1546/41962-LICRA-DEPORTIVA-AZUL-OSCURO-MUJER-PANTALONES-Y-LICRAS-RACKETBALL-7701650788548-1.jpg?v=637986167778630000',
@@ -1188,7 +1190,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "Licra francesa",
             'description' => "Licra francesa",
-            'amount' => 1,
+            'amount' => 6,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://fiber.com.co/cdn/shop/files/FANL03-B-5_1512x.jpg?v=1692539588',
@@ -1200,7 +1202,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra Supplex",
             'description' => "licra Supplex",
-            'amount' => 1,
+            'amount' => 4,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://nikkystore.com.co/wp-content/uploads/2023/07/LEGGINS-CON-PUNTA-NEGRO-UNICA-SUPLEX-HEB.-GRANDE-0923-2-1434x1536.png',
@@ -1212,7 +1214,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "Lycra suave",
             'description' => "Lycra suave",
-            'amount' => 1,
+            'amount' => 8,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://www.skinlook.co/cdn/shop/files/4_cf9ae76e-d49b-49ac-862f-37dd90de1d15.png?v=1689728174&width=1946',
@@ -1224,7 +1226,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "Licra deportiva",
             'description' => "Licra deportiva",
-            'amount' => 1,
+            'amount' => 3,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://megashoptv.vteximg.com.br/arquivos/ids/164491-900-900/Leggins-deportivos-tiro-alto-control-de-abdomen-licra-larga_1.jpg?v=638229811783630000',
@@ -1236,7 +1238,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "Licra mezclilla",
             'description' => "Licra mezclilla",
-            'amount' => 1,
+            'amount' => 6,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://www.alcarrito.com/media/catalog/product/i/m/img-20230714-wa0107.jpg?width=600&height=600&canvas=600,600&optimize=medium&bg-color=255,255,255&fit=bounds',
@@ -1248,7 +1250,7 @@ class DBData extends Seeder
         DB::table('products')->insert([
             'name' => "licra Elastomérico",
             'description' => "licra Elastomérico",
-            'amount' => 1,
+            'amount' => 9,
             'value' => 1000,
             'price_production' => 144,
             'image' => 'https://www.kinema.com.co/cdn/shop/products/Disenosintitulo_40_b1ed70e6-afe0-4ada-aafb-7afc643e7b40_900x.jpg?v=1646972496',
@@ -1647,5 +1649,26 @@ class DBData extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
+        for ($i = 0; $i < 200; $i++) {
+            $fecha = Carbon::now();
+            $fecha->setDate(now()->year, rand(1, 12), rand(1, 30));
+        
+            $sale = Sale::create([
+                'name_client' => 'Jose',
+                'email_client' => 'jose.1996@gmail.com',
+                'number_phone_client' => '9889809888',
+                'total' => rand(100, 10000),
+                'user_id' => 1,
+                'currency_id' => 1,
+                'created_at' => $fecha->toDateString(),
+                'updated_at' => $fecha->toDateString(),
+            ]);
+        
+            DB::table('product_sale')->insert([
+                'amount' => rand(1, 10),
+                'sale_id' => $sale->id,
+                'product_id' => rand(1, 115),
+            ]);
+        }
     }
 }

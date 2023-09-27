@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use App\Models\Sale;
 
 class ProductsTableSeeder extends Seeder
 {
@@ -38,5 +40,26 @@ class ProductsTableSeeder extends Seeder
         ]);
 
         // Puedes agregar más productos aquí si lo deseas
+        for ($i = 0; $i < 200; $i++) {
+            $fecha = Carbon::now();
+            $fecha->setDate(now()->year, rand(1, 12), rand(1, 30));
+        
+            $sale = Sale::create([
+                'name_client' => 'Jose',
+                'email_client' => 'jose.1996@gmail.com',
+                'number_phone_client' => '9889809888',
+                'total' => rand(100, 10000),
+                'user_id' => 1,
+                'currency_id' => 1,
+                'created_at' => $fecha->toDateString(),
+                'updated_at' => $fecha->toDateString(),
+            ]);
+        
+            DB::table('product_sale')->insert([
+                'amount' => rand(1, 10),
+                'sale_id' => $sale->id,
+                'product_id' => rand(1, 115),
+            ]);
+        }
     }
 }
