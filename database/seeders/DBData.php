@@ -1125,7 +1125,6 @@ class DBData extends Seeder
             'updated_at' => now(),
             'currency_id' => 2
         ]);
-
         DB::table('products')->insert([
             'name' => "licra Algodón elástico",
             'description' => "licra Algodón elástico",

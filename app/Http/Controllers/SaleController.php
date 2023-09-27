@@ -114,18 +114,78 @@ class SaleController extends Controller
         for ($i = 0; $i < count($sales); $i++)
             for ($j = 0; $j < count($sales[$i]->products); $j++) {
                 if (isset($products[$sales[$i]->products[$j]['name']])) {
-                    $products[$sales[$i]->products[$j]['name']] += $sales[$i]->products[$j]['amount'];
+                    $products[$sales[$i]->products[$j]['name']] += $sales[$i]->products[$j]['pivot']['amount'];
                     if (isset($categories[$sales[$i]->products[$j]['category']['name']]))
-                        $categories[$sales[$i]->products[$j]['category']['name']] += $sales[$i]->products[$j]['amount'];
+                        $categories[$sales[$i]->products[$j]['category']['name']] += $sales[$i]->products[$j]['pivot']['amount'];
                     else
-                        $categories[$sales[$i]->products[$j]['category']['name']] = $sales[$i]->products[$j]['amount'];
-                    $total += $sales[$i]->products[$j]['amount'];
+                        $categories[$sales[$i]->products[$j]['category']['name']] = $sales[$i]->products[$j]['pivot']['amount'];
+                    $total += $sales[$i]->products[$j]['pivot']['amount'];
                 } else {
-                    $products[$sales[$i]->products[$j]['name']] = $sales[$i]->products[$j]['amount'];
-                    $categories[$sales[$i]->products[$j]['category']['name']] = $sales[$i]->products[$j]['amount'];
-                    $total += $sales[$i]->products[$j]['amount'];
+                    $products[$sales[$i]->products[$j]['name']] = $sales[$i]->products[$j]['pivot']['amount'];
+                    if (isset($categories[$sales[$i]->products[$j]['category']['name']]))
+                        $categories[$sales[$i]->products[$j]['category']['name']] += $sales[$i]->products[$j]['pivot']['amount'];
+                    else
+                        $categories[$sales[$i]->products[$j]['category']['name']] = $sales[$i]->products[$j]['pivot']['amount'];
+                    $total += $sales[$i]->products[$j]['pivot']['amount'];
                 }
             }
         return response()->json(['data' => ['total_products' => $total, 'products' => $products, 'categories' => $categories]]);
+    }
+
+    public function metricsDate(Request $request)
+    {
+        $year = request()->get('year');
+        $sales = $year ? Sale::with('products.category')->whereYear('created_at', '=', $year)->get() : [];
+
+        $week_days = [
+            0 => 0,
+            1 => 0,
+            2 => 0,
+            3 => 0,
+            4 => 0,
+            5 => 0,
+            6 => 0,
+        ];
+
+        $months_year = [
+            0 => 0,
+            1 => 0,
+            2 => 0,
+            3 => 0,
+            4 => 0,
+            5 => 0,
+            6 => 0,
+            7 => 0,
+            8 => 0,
+            9 => 0,
+            10 => 0,
+            11 => 0
+        ];
+
+        $metrics = (request()->get('type') == 'day') ? $week_days : $months_year;
+
+        for ($i = 0; $i < count($sales); $i++) {
+            $total = 0;
+            for ($j = 0; $j < count($sales[$i]->products); $j++)
+                $total += $sales[$i]->products[$j]['pivot']['amount'];
+            if ((request()->get('type') == 'day'))
+                $metrics[$this->getNumberDay($sales[$i]->created_at->format('Y-m-d'))] += $total;
+            else
+                $metrics[$this->getNumberMonth($sales[$i]->created_at->format('Y-m-d'))] += $total;
+        }
+
+        return response()->json(['data' => $metrics]);
+    }
+
+    public function getNumberDay($date_parameter)
+    {
+        $date = strtotime($date_parameter);
+        return date("w", $date);
+    }
+
+    public function getNumberMonth($date_parameter)
+    {
+        $date = strtotime($date_parameter);
+        return date("m", $date) - 1;
     }
 }
