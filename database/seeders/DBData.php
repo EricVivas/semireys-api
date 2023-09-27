@@ -1651,8 +1651,7 @@ class DBData extends Seeder
         ]);
         for ($i = 0; $i < 200; $i++) {
             $fecha = Carbon::now();
-            $fecha->setDate(now()->year, rand(1, 12), rand(1, 30));
-        
+            $fecha->setDate(now()->year, rand(1, 12), rand(1, 28));
             $sale = Sale::create([
                 'name_client' => 'Jose',
                 'email_client' => 'jose.1996@gmail.com',
@@ -1663,7 +1662,6 @@ class DBData extends Seeder
                 'created_at' => $fecha->toDateString(),
                 'updated_at' => $fecha->toDateString(),
             ]);
-        
             DB::table('product_sale')->insert([
                 'amount' => rand(1, 10),
                 'sale_id' => $sale->id,
