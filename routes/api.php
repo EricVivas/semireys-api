@@ -14,6 +14,7 @@ use App\Http\Controllers\ChangeController;
 Route::post('login', [AuthController::class, 'login']);
 Route::get('categories', [CategoryController::class, 'index']);
 Route::get('products', [ProductController::class, 'index']);
+Route::get('sales/metrics', [SaleController::class, 'metrics'])->middleware([ValidateToken::class]);
 
 Route::middleware([ValidateToken::class])->group(function () {
     Route::resource('users', UserController::class)->only([

@@ -23,7 +23,7 @@ class SaleController extends Controller
         else if ($date_end)
             $sales = Sale::with(['user', 'products'])->dateEnd($date_end)->get();
         else
-            $sales = Sale::with(['user', 'products'])->get();
+            $sales = Sale::with(['user', 'products.category'])->get();
         return response()->json(['data' => $sales]);
     }
 
@@ -101,5 +101,31 @@ class SaleController extends Controller
     public function destroy(Sale $sale)
     {
         return response()->json(['data' => $sale->delete()]);
+    }
+
+    public function metrics(Request $request)
+    {
+        $date_start = request()->get('date_start');
+        $date_end = request()->get('date_end');
+        $sales = $date_start && $date_end ? Sale::with('products.category')->dateBetween($date_start, $date_end)->get() : [];
+        $total = 0;
+        $products = [];
+        $categories = [];
+        for ($i = 0; $i < count($sales); $i++)
+            for ($j = 0; $j < count($sales[$i]->products); $j++) {
+                if (isset($products[$sales[$i]->products[$j]['name']])) {
+                    $products[$sales[$i]->products[$j]['name']] += $sales[$i]->products[$j]['amount'];
+                    if (isset($categories[$sales[$i]->products[$j]['category']['name']]))
+                        $categories[$sales[$i]->products[$j]['category']['name']] += $sales[$i]->products[$j]['amount'];
+                    else
+                        $categories[$sales[$i]->products[$j]['category']['name']] = $sales[$i]->products[$j]['amount'];
+                    $total += $sales[$i]->products[$j]['amount'];
+                } else {
+                    $products[$sales[$i]->products[$j]['name']] = $sales[$i]->products[$j]['amount'];
+                    $categories[$sales[$i]->products[$j]['category']['name']] = $sales[$i]->products[$j]['amount'];
+                    $total += $sales[$i]->products[$j]['amount'];
+                }
+            }
+        return response()->json(['data' => ['total_products' => $total, 'products' => $products, 'categories' => $categories]]);
     }
 }
